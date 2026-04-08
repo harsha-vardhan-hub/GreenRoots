@@ -1,0 +1,79 @@
+/* GreenRoots Base Theme */
+
+:root {
+    --primary-green: #2ecc71;
+    --dark-green: #27ae60;
+    --light-green: #e8f8f5;
+    --text-dark: #2c3e50;
+    --text-light: #ecf0f1;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9fbf9;
+    color: var(--text-dark);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+}
+
+.hero-section {
+    background: linear-gradient(rgba(39, 174, 96, 0.8), rgba(44, 62, 80, 0.8)), url('https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?auto=format&fit=crop&q=80') center/cover;
+    height: 70vh;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.feature-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+}
+
+.btn-success {
+    background-color: var(--primary-green);
+    border-color: var(--primary-green);
+}
+
+.btn-success:hover {
+    background-color: var(--dark-green);
+    border-color: var(--dark-green);
+}
+
+.text-success {
+    color: var(--dark-green) !important;
+}
+
+.card {
+    border-radius: 12px;
+}
+
+.form-control:focus {
+    border-color: var(--primary-green);
+    box-shadow: 0 0 0 0.25rem rgba(46, 204, 113, 0.25);
+}
+
+.stat-card {
+    border-left: 5px solid var(--primary-green);
+}
+
+.badge-pending {
+    background-color: #f39c12;
+    color: white;
+}
+
+.badge-planted {
+    background-color: var(--primary-green);
+    color: white;
+}
+
+.badge-paid {
+    background-color: #3498db;
+    color: white;
+}

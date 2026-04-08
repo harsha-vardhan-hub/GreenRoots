@@ -1,0 +1,98 @@
+@{
+    ViewData["Title"] = "Plant a Tree, Save the Future";
+    Layout = "_Layout";
+}
+
+<!-- Hero Section -->
+<header class="hero-section text-center text-white d-flex align-items-center justify-content-center">
+    <div class="container hero-content">
+        <h1 class="display-3 fw-bold mb-4">Plant a Tree, Save the Future</h1>
+        <p class="lead mb-4">Join GreenRoots today and help us bring life back to our planet. Simple, transparent, and impactful.</p>
+        @if (User.Identity != null && User.Identity.IsAuthenticated)
+        {
+            <a asp-controller="Dashboard" asp-action="@(User.IsInRole("Admin") ? "AdminIndex" : "UserIndex")" class="btn btn-light btn-lg text-success fw-bold me-3">Go to Dashboard</a>
+            <a asp-controller="@(User.IsInRole("Admin") ? "Dashboard" : "Requests")" asp-action="@(User.IsInRole("Admin") ? "AdminIndex" : "Submit")" class="btn btn-outline-light btn-lg fw-bold">
+                @(User.IsInRole("Admin") ? "Manage Requests" : "🌱 Plant a Tree Now")
+            </a>
+        }
+        else
+        {
+            <a asp-controller="Account" asp-action="Register" class="btn btn-light btn-lg text-success fw-bold me-3">Get Started</a>
+            <a asp-controller="Account" asp-action="Login" class="btn btn-outline-light btn-lg fw-bold">Login</a>
+        }
+    </div>
+</header>
+
+<!-- About Section -->
+<section class="py-5 bg-white">
+    <div class="container py-4">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold text-success">What is GreenRoots?</h2>
+            <p class="text-muted col-md-8 mx-auto mt-3">GreenRoots is a community-driven tree plantation platform where individuals request trees to be planted at any location. Users submit planting requests, simulate a small payment, and our team takes care of the rest — one tree at a time.</p>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works -->
+<section class="py-5 bg-light">
+    <div class="container py-4">
+        <h2 class="text-center fw-bold text-success mb-5">How It Works</h2>
+        <div class="row text-center g-4">
+            <div class="col-md-3">
+                <div class="card h-100 border-0 shadow-sm feature-card p-3">
+                    <div class="display-4 text-success mb-3">📝</div>
+                    <h5 class="fw-bold">1. Register</h5>
+                    <p class="text-muted">Create your free account with your name and email.</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card h-100 border-0 shadow-sm feature-card p-3">
+                    <div class="display-4 text-success mb-3">🌱</div>
+                    <h5 class="fw-bold">2. Submit Request</h5>
+                    <p class="text-muted">Choose a location, number of trees, and leave a message.</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card h-100 border-0 shadow-sm feature-card p-3">
+                    <div class="display-4 text-success mb-3">💳</div>
+                    <h5 class="fw-bold">3. Simulate Payment</h5>
+                    <p class="text-muted">Complete a simulated payment to confirm your request.</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card h-100 border-0 shadow-sm feature-card p-3">
+                    <div class="display-4 text-success mb-3">🌍</div>
+                    <h5 class="fw-bold">4. Track & Grow</h5>
+                    <p class="text-muted">Track your requests from "Pending" to "Planted" on your dashboard.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features -->
+<section class="py-5 bg-white">
+    <div class="container py-4">
+        <h2 class="text-center fw-bold text-success mb-5">Platform Features</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm p-4">
+                    <h5 class="fw-bold">🔐 Secure Authentication</h5>
+                    <p class="text-muted">Cookie-based sessions with BCrypt password hashing. Your data is always safe.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm p-4">
+                    <h5 class="fw-bold">👤 Role-Based Access</h5>
+                    <p class="text-muted">Users submit & track requests. Admins manage all requests and update statuses.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm p-4">
+                    <h5 class="fw-bold">📊 Real-Time Dashboard</h5>
+                    <p class="text-muted">View live stats — total trees requested, pending, and planted — all in one place.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

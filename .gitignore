@@ -1,0 +1,68 @@
+## .NET Build Output
+bin/
+obj/
+out/
+
+## .NET Runtime Files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## User-specific files
+*.userprefs
+
+## Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+build/
+bld/
+[Bb]in/
+[Oo]bj/
+
+## NuGet packages
+*.nupkg
+*.snupkg
+.nuget/
+packages/
+!**/packages/build/
+
+## Logs
+*.log
+logs/
+
+## OS generated
+.DS_Store
+Thumbs.db
+desktop.ini
+
+## IDE - Visual Studio
+.vs/
+*.rsuser
+*.pidb
+*.booproj
+*.svd
+*.pdb
+
+## Visual Studio Code
+.vscode/
+
+## Rider
+.idea/
+
+## Sensitive / Local config — NEVER COMMIT THESE
+appsettings.Development.json
+**/secrets.json
+**/*.pfx
+**/*.key
+
+## Local SQLite databases
+*.db
+*.db-shm
+*.db-wal
+
+## Test results
+TestResults/
+*.trx

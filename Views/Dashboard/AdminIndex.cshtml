@@ -1,0 +1,99 @@
+@model IEnumerable<GreenRoots.API.DTOs.TreeRequestResponseDto>
+@{
+    ViewData["Title"] = "Admin Dashboard";
+}
+
+<div class="container mt-5">
+    <h2 class="mb-1 text-success fw-bold">Admin Dashboard 🛠️</h2>
+    <p class="text-muted mb-4">Manage all plantation requests across the platform.</p>
+
+    <!-- Stats Row -->
+    <div class="row mb-4 g-4">
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm stat-card p-4">
+                <h6 class="text-muted text-uppercase">Total Requests</h6>
+                <h2 class="fw-bold text-success">@ViewBag.Total</h2>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm p-4" style="border-left: 5px solid #f39c12 !important;">
+                <h6 class="text-muted text-uppercase">Pending</h6>
+                <h2 class="fw-bold" style="color:#f39c12">@ViewBag.Pending</h2>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm stat-card p-4">
+                <h6 class="text-muted text-uppercase">Planted</h6>
+                <h2 class="fw-bold text-success">@ViewBag.Planted</h2>
+            </div>
+        </div>
+    </div>
+
+    <!-- All Requests Table -->
+    <div class="card border-0 shadow-sm">
+        <div class="card-body">
+            <h5 class="fw-bold text-success mb-3">All Plantation Requests</h5>
+            @if (!Model.Any())
+            {
+                <div class="text-center text-muted py-4">
+                    <p>No requests have been submitted yet.</p>
+                </div>
+            }
+            else
+            {
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle">
+                        <thead class="table-light">
+                            <tr>
+                                <th>#</th>
+                                <th>User</th>
+                                <th>Location</th>
+                                <th>Trees</th>
+                                <th>Status</th>
+                                <th>Payment</th>
+                                <th>Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var req in Model)
+                            {
+                                <tr>
+                                    <td>@req.Id</td>
+                                    <td>@req.UserEmail</td>
+                                    <td>@req.Location</td>
+                                    <td>@req.NumberOfTrees</td>
+                                    <td><span class="badge @(req.Status == "Planted" ? "badge-planted" : "badge-pending")">@req.Status</span></td>
+                                    <td><span class="badge @(req.PaymentStatus == "Paid" ? "badge-paid" : "badge-pending")">@req.PaymentStatus</span></td>
+                                    <td>@req.CreatedAt.ToString("dd MMM yyyy")</td>
+                                    <td>
+                                        <div class="d-flex gap-2">
+                                            @if (req.PaymentStatus != "Paid")
+                                            {
+                                                <form asp-action="UpdateStatus" asp-controller="Dashboard" method="post">
+                                                    <input type="hidden" name="id" value="@req.Id" />
+                                                    <input type="hidden" name="status" value="@req.Status" />
+                                                    <input type="hidden" name="paymentStatus" value="Paid" />
+                                                    <button type="submit" class="btn btn-sm btn-primary">Mark Paid</button>
+                                                </form>
+                                            }
+                                            @if (req.Status != "Planted")
+                                            {
+                                                <form asp-action="UpdateStatus" asp-controller="Dashboard" method="post">
+                                                    <input type="hidden" name="id" value="@req.Id" />
+                                                    <input type="hidden" name="status" value="Planted" />
+                                                    <input type="hidden" name="paymentStatus" value="@req.PaymentStatus" />
+                                                    <button type="submit" class="btn btn-sm btn-success">Mark Planted</button>
+                                                </form>
+                                            }
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+        </div>
+    </div>
+</div>

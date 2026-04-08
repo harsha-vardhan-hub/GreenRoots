@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
-using GreenRoots.API.Data;
-using GreenRoots.API.Services;
+using GreenRoots.Data;
+using GreenRoots.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 

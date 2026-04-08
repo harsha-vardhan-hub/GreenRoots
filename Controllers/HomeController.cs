@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace GreenRoots.API.Controllers;
+namespace GreenRoots.Controllers;
 
 public class HomeController : Controller
 {

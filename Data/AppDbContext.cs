@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using GreenRoots.API.Models;
+using GreenRoots.Models;
 
-namespace GreenRoots.API.Data;
+namespace GreenRoots.Data;
 
 public class AppDbContext : DbContext
 {

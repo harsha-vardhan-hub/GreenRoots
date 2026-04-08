@@ -1,6 +1,0 @@
-@GreenRoots.API_HostAddress = http://localhost:5139
-
-GET {{GreenRoots.API_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

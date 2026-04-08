@@ -1,6 +1,6 @@
 using System;
 
-namespace GreenRoots.API.Models;
+namespace GreenRoots.Models;
 
 public class TreeRequest
 {

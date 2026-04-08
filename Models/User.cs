@@ -1,4 +1,4 @@
-namespace GreenRoots.API.Models;
+namespace GreenRoots.Models;
 
 public class User
 {

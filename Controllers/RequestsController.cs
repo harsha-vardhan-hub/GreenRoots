@@ -1,11 +1,11 @@
-using GreenRoots.API.Data;
-using GreenRoots.API.DTOs;
-using GreenRoots.API.Services;
+using GreenRoots.Data;
+using GreenRoots.DTOs;
+using GreenRoots.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace GreenRoots.API.Controllers;
+namespace GreenRoots.Controllers;
 
 [Authorize(Roles = "User")]
 public class RequestsController : Controller
@@ -43,7 +43,7 @@ public class RequestsController : Controller
             var email = User.FindFirst(System.Security.Claims.ClaimTypes.Email)?.Value ?? "";
             await _requestService.CreateRequestAsync(userId, email, dto);
 
-            TempData["Success"] = $"✅ Your request for {dto.NumberOfTrees} tree(s) at '{dto.Location}' has been submitted!";
+            TempData["Success"] = $"âœ… Your request for {dto.NumberOfTrees} tree(s) at '{dto.Location}' has been submitted!";
             return RedirectToAction("MyRequests");
         }
         catch

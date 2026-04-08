@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using GreenRoots.API.Data;
-using GreenRoots.API.DTOs;
-using GreenRoots.API.Models;
+using GreenRoots.Data;
+using GreenRoots.DTOs;
+using GreenRoots.Models;
 
-namespace GreenRoots.API.Services;
+namespace GreenRoots.Services;
 
 public interface ITreeRequestService
 {

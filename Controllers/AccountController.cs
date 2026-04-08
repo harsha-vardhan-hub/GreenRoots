@@ -1,11 +1,11 @@
 using System.Security.Claims;
-using GreenRoots.API.DTOs;
-using GreenRoots.API.Services;
+using GreenRoots.DTOs;
+using GreenRoots.Services;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 
-namespace GreenRoots.API.Controllers;
+namespace GreenRoots.Controllers;
 
 public class AccountController : Controller
 {

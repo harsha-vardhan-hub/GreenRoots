@@ -1,10 +1,10 @@
-@model IEnumerable<GreenRoots.API.DTOs.TreeRequestResponseDto>
+@model IEnumerable<GreenRoots.DTOs.TreeRequestResponseDto>
 @{
     ViewData["Title"] = "My Dashboard";
 }
 
 <div class="container mt-5">
-    <h2 class="mb-1 text-success fw-bold">Welcome, @ViewBag.UserName! 👋</h2>
+    <h2 class="mb-1 text-success fw-bold">Welcome, @ViewBag.UserName! ðŸ‘‹</h2>
     <p class="text-muted mb-4">Here is your tree plantation impact summary.</p>
 
     <!-- Stats Row -->
@@ -31,8 +31,8 @@
 
     <!-- Action Buttons -->
     <div class="mb-4 d-flex gap-3">
-        <a asp-controller="Requests" asp-action="Submit" class="btn btn-success fw-bold">🌱 Plant a Tree</a>
-        <a asp-controller="Requests" asp-action="MyRequests" class="btn btn-outline-success fw-bold">📋 My Requests</a>
+        <a asp-controller="Requests" asp-action="Submit" class="btn btn-success fw-bold">ðŸŒ± Plant a Tree</a>
+        <a asp-controller="Requests" asp-action="MyRequests" class="btn btn-outline-success fw-bold">ðŸ“‹ My Requests</a>
     </div>
 
     <!-- Recent Requests -->

@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace GreenRoots.API.DTOs;
+namespace GreenRoots.DTOs;
 
 public class CreateTreeRequestDto
 {

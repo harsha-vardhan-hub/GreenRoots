@@ -1,10 +1,10 @@
-using GreenRoots.API.Data;
-using GreenRoots.API.Services;
+using GreenRoots.Data;
+using GreenRoots.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace GreenRoots.API.Controllers;
+namespace GreenRoots.Controllers;
 
 [Authorize]
 public class DashboardController : Controller
@@ -55,7 +55,7 @@ public class DashboardController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> UpdateStatus(int id, string status, string? paymentStatus)
     {
-        var dto = new GreenRoots.API.DTOs.UpdateStatusDto
+        var dto = new GreenRoots.DTOs.UpdateStatusDto
         {
             Status = status,
             PaymentStatus = paymentStatus
